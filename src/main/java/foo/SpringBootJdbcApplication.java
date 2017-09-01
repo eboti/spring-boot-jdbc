@@ -1,34 +1,40 @@
 package foo;
 
-import javax.annotation.PostConstruct;
-import javax.sql.DataSource;
-
 import lombok.extern.log4j.Log4j;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import foo.service.CustomerService;
+import foo.service.MusicianService;
 
 @Log4j
 @SpringBootApplication
 public class SpringBootJdbcApplication {
 
-	@Autowired
-	private DataSource dataSource;
-
-	@Autowired
-	private CustomerService customerServiceImpl;
+	private final MusicianService musicianServiceImpl;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootJdbcApplication.class, args);
 	}
 
-	@PostConstruct
-	public void init(){
-		customerServiceImpl.retrieveAllCustomers()
-			.forEach(customer -> log.debug(customer));
+	public SpringBootJdbcApplication(MusicianService musicianServiceImpl) {
+		this.musicianServiceImpl = musicianServiceImpl;
+		
+		doSpringJdbcTemplateQuery();
+		doPlainJdbcQuery();
 	}
 
+	public void doSpringJdbcTemplateQuery() {
+
+		musicianServiceImpl.addMusician("Frank Sinatra", "frank@asdf.hu");
+
+		musicianServiceImpl.retrieveAllMusicians().forEach(
+				musician -> log.debug(musician));
+	}
+	
+	public void doPlainJdbcQuery(){
+		
+		musicianServiceImpl.findMusicians("Frank Sinatra").forEach(
+				musician -> log.debug(musician));		
+	}
 }

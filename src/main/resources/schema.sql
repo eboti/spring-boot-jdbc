@@ -1,6 +1,6 @@
-drop table if exists customer;
+drop table if exists musician;
 
-create table customer (
+create table musician (
   id numeric identity primary key,
   name varchar(100) not null,
   email varchar(100) not null,
