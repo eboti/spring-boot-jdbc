@@ -1,3 +1,6 @@
-INSERT INTO customer(name,email,created_date)VALUES('mkyong','111@yahoo.com', '2017-02-11');
-INSERT INTO customer(name,email,created_date)VALUES('yflow','222@yahoo.com', '2017-02-12');
-INSERT INTO customer(name,email,created_date)VALUES('zilap','333@yahoo.com', '2017-02-13');
+INSERT INTO customer(name,email,created_date)
+	VALUES('Mr brown','111@asdf.com', '2016-12-11');
+INSERT INTO customer(name,email,created_date)
+	VALUES('Joe Handerson','222@asdf.com', '2017-03-12');
+INSERT INTO customer(name,email,created_date)
+	VALUES('Terminator','333@asdf.com', '2015-03-18');

@@ -27,7 +27,8 @@ public class SpringBootJdbcApplication {
 
 	@PostConstruct
 	public void init(){
-		customerServiceImpl.retrieveAllCustomers().forEach(customer -> log.debug(customer));
+		customerServiceImpl.retrieveAllCustomers()
+			.forEach(customer -> log.debug(customer));
 	}
 
 }
