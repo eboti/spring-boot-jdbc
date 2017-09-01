@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS customer;
+
+CREATE TABLE customer (
+  id NUMERIC IDENTITY PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  created_date DATE NOT NULL);
