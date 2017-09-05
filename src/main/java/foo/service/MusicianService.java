@@ -15,4 +15,6 @@ public interface MusicianService {
 	
 	void addMusician(String name, String email);
 	
+	int countMusicians(String name);
+	
 }

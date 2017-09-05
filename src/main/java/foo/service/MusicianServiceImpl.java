@@ -28,4 +28,9 @@ public class MusicianServiceImpl implements MusicianService {
 	public void addMusician(String name, String email) {
 		musicianRepository.addMusician(name, email);
 	}
+
+	@Override
+	public int countMusicians(String name) {
+		return musicianRepository.countMusicians(name);
+	}
 }

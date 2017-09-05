@@ -22,6 +22,7 @@ public class SpringBootJdbcApplication {
 		
 		doSpringJdbcTemplateQuery();
 		doPlainJdbcQuery();
+		doNamedParameterSpringJdbcQuery();
 	}
 
 	public void doSpringJdbcTemplateQuery() {
@@ -36,5 +37,9 @@ public class SpringBootJdbcApplication {
 		
 		musicianServiceImpl.findMusicians("Frank Sinatra").forEach(
 				musician -> log.debug(musician));		
+	}
+	
+	public void doNamedParameterSpringJdbcQuery(){
+		log.debug(musicianServiceImpl.countMusicians("Frank Sinatra"));
 	}
 }
